@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+:数据更新/删除;
+if (更新/删除成功) then (true)
+  :写入消息队列;
+  #palegreen:消费者清除缓存;
+
+else (false)
+  :事物回滚;
+'  if (查询命中) then (true)
+'    :写入缓存;
+'  else (false)
+'    :返回null值;
+'  endif
+endif
+
+stop
+
+@enduml

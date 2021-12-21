@@ -1,0 +1,6 @@
+rootProject.name = 'mars'
+include 'mars-redis'
+include 'mars-leetcode'
+include 'mars-mq'
+include 'mars-web'
+
