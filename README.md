@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 # mars
-=======
-# mars
->>>>>>> develop
