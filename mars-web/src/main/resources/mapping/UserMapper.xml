@@ -13,4 +13,24 @@
         select * from user where id = #{id}
     </select>
 
+    <insert id="saveUser" parameterType="com.xinghuan.mars.entity.User">
+        insert into user (username, password, real_name) values (#{username}, #{password}, #{realName})
+    </insert>
+
+    <update id="updateUser" parameterType="com.xinghuan.mars.entity.User">
+        update user set
+        <trim suffixOverrides=",">
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="realName != null">
+                real_name = #{realName},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
 </mapper>

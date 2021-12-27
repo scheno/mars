@@ -19,4 +19,20 @@ public interface UserRepository {
      */
     User getUserById(int id);
 
+    /**
+     * 添加用户
+     *
+     * @param user
+     * @return
+     */
+    int saveUser(User user);
+
+    /**
+     * 更新用户
+     *
+     * @param user
+     * @return
+     */
+    int updateUser(User user);
+
 }

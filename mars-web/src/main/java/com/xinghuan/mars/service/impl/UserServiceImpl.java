@@ -43,12 +43,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer updateUser(User user) {
-        return null;
+        int result = userRepository.updateUser(user);
+        RBucket<User> userRBucket = redissonClient.getBucket("user:id:" + user.getId());
+        if (userRBucket.isExists()) {
+            userRBucket.delete();
+        }
+        return result;
     }
 
     @Override
     public User getUserById(int id) {
-        RBucket<User> userRBucket = redissonClient.getBucket("user:" + id);
+        RBucket<User> userRBucket = redissonClient.getBucket("user:id:" + id);
         long startTime = System.currentTimeMillis();
         if (userRBucket.isExists()) {
             log.info("使用了缓存,消耗时间{}ms", System.currentTimeMillis() - startTime);
