@@ -1,16 +1,8 @@
 package com.mars.leetcode.linkedlist;
 
-import java.util.List;
+import com.mars.leetcode.ListNode;
 
 public class Offer22 {
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode getKthFromEnd(ListNode head, int k) {
         if (head == null) {
