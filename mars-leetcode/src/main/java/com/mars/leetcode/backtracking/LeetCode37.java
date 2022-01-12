@@ -1,4 +1,4 @@
-package com.mars.leetcode.backstack;
+package com.mars.leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -7,7 +7,7 @@ import java.util.List;
 public class LeetCode37 {
 
     public List<List<Integer>> result;
-    
+
     public LinkedList<Integer> path;
 
     public List<List<Integer>> combine(int n, int k) {

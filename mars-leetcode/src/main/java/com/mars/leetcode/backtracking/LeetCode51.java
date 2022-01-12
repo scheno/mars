@@ -1,4 +1,4 @@
-package com.mars.leetcode.backstack;
+package com.mars.leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
