@@ -16,6 +16,7 @@ public class LeetCode3 {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (map.containsKey(c)) {
+                // 避免指针回退
                 start = Math.max(start, map.get(c) + 1);
             }
             map.put(c, i);
