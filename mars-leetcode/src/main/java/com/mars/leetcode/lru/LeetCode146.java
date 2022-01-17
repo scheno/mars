@@ -11,76 +11,92 @@ import java.util.Map;
 
 class LRUCache {
 
+
     class Node {
+
         Integer key;
         Integer value;
         Node prev, next;
 
-        public Node() {}
+        public Node() {
+        }
 
-        public Node(int key, int value) {
+        public Node(Integer key, Integer value) {
             this.key = key;
             this.value = value;
         }
     }
 
-    private Integer capacity;
+    Integer size;
 
-    private Map<Integer, Node> map;
+    Integer capacity;
 
-    private Node head;
+    Map<Integer, Node> cache = new HashMap<>();
 
-    private Node tail;
+    Node dummy;
+
+    Node tail;
+
+    public LRUCache() {
+    }
 
     public LRUCache(int capacity) {
+        this.size = 0;
         this.capacity = capacity;
-        map = new HashMap<>();
-        head = new Node();
+        dummy = new Node();
         tail = new Node();
-        head.next = tail;
-        tail.prev = head;
+        dummy.next = tail;
+        tail.prev = dummy;
     }
 
     public int get(int key) {
-        Node node = map.get(key);
-        if (node != null) {
-            moveToHead(node);
-            return node.value;
+        Node node = cache.get(key);
+        if (node == null) {
+            return -1;
         }
-        return -1;
+        moveToHead(node);
+        return node.value;
     }
 
     public void put(int key, int value) {
-        Node node = map.get(key);
+        Node node = cache.get(key);
         if (node == null) {
             node = new Node(key, value);
-            if (map.size() >= capacity) {
-                map.remove(tail.prev.key);
-                removeNode(tail.prev);
-            }
+            cache.put(key, node);
             addToHead(node);
-            map.put(key, node);
+            size += 1;
+            if (size > capacity) {
+                Node tail = removeTail();
+                cache.remove(tail.key);
+                size -= 1;
+            }
         } else {
             node.value = value;
             moveToHead(node);
         }
     }
 
-    public void removeNode(Node node) {
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-    }
-
     public void addToHead(Node node) {
-        node.prev = head;
-        node.next = head.next;
-        head.next.prev = node;
-        head.next = node;
+        node.prev = dummy;
+        node.next = dummy.next;
+        dummy.next.prev = node;
+        dummy.next = node;
     }
 
     public void moveToHead(Node node) {
         removeNode(node);
         addToHead(node);
+    }
+
+    public void removeNode(Node node) {
+        node.next.prev = node.prev;
+        node.prev.next = node.next;
+    }
+
+    public Node removeTail() {
+        Node res = tail.prev;
+        removeNode(res);
+        return res;
     }
 
 }
@@ -89,12 +105,13 @@ public class LeetCode146 {
 
     public static void main(String[] args) {
         LRUCache lRUCache = new LRUCache(2);
-        lRUCache.put(2, 1);
-        lRUCache.put(3, 2);
-        System.out.println(lRUCache.get(3));
+        lRUCache.put(1, 0);
+        lRUCache.put(2, 2);
+        System.out.println(lRUCache.get(1));
+        lRUCache.put(3, 3);
         System.out.println(lRUCache.get(2));
-        lRUCache.put(4, 3);
-        System.out.println(lRUCache.get(2));
+        lRUCache.put(4, 4);
+        System.out.println(lRUCache.get(1));
         System.out.println(lRUCache.get(3));
         System.out.println(lRUCache.get(4));
 
