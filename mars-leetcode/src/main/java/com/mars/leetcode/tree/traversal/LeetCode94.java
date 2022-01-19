@@ -1,4 +1,6 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.traversal;
+
+import com.mars.leetcode.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -12,26 +14,7 @@ import java.util.List;
  */
 public class LeetCode94 {
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> postorderList = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList();
         while(root != null || !stack.isEmpty()) {
@@ -52,6 +35,4 @@ public class LeetCode94 {
         return postorderList;
     }
 
-    public static void main(String[] args) {
-    }
 }

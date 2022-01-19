@@ -1,4 +1,4 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.traversal;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
