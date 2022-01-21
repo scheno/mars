@@ -1,4 +1,4 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.path;
 
 import com.mars.leetcode.TreeNode;
 

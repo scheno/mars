@@ -3,7 +3,6 @@ package com.mars.leetcode.tree.path;
 import com.mars.leetcode.TreeNode;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -34,5 +33,23 @@ public class LeetCode257 {
         if (root.left != null) backtracking(root.left, paths, path);
         if (root.right != null) backtracking(root.right, paths, path);
         path.remove(path.size() - 1);
+    }
+
+    /**
+     * @author shenchen
+     * @version 1.0
+     * @date 2022/1/7 5:29 下午
+     */
+    public static class LeetCode112 {
+
+        public boolean hasPathSum(TreeNode root, int targetSum) {
+            if (root == null) {
+                return false;
+            }
+            if (root.left == null && root.right == null && targetSum == root.val) {
+                return true;
+            }
+            return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
+        }
     }
 }
