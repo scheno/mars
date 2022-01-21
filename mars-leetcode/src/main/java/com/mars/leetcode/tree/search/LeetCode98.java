@@ -12,20 +12,17 @@ public class LeetCode98 {
     private TreeNode pre;
 
     public boolean isValidBST(TreeNode root) {
-        if (root == null) return true;
-        // 左子树
-        boolean isLeftValid = isValidBST(root.left);
-        if (!isLeftValid) {
-            return false;
+        if (root == null) {
+            return true;
         }
-        // 根
+
+        boolean left = isValidBST(root.left);
         if (pre != null && pre.val >= root.val) {
             return false;
         }
         pre = root;
-        // 右子树
-        boolean isRightValid = isValidBST(root.right);
-        return isRightValid;
+        boolean right = isValidBST(root.right);
+        return left && right;
     }
 
 }

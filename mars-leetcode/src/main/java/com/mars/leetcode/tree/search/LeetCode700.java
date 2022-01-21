@@ -13,17 +13,10 @@ public class LeetCode700 {
         if (root == null) {
             return null;
         }
-        while (root != null) {
-            if (root.val == val) {
-                return root;
-            }
-            if (root.val > val) {
-                root = root.left;
-            } else if (root.val < val) {
-                root = root.right;
-            }
+        if (root.val == val) {
+            return root;
         }
-        return null;
+        return root.val > val ? searchBST(root.left, val) : searchBST(root.right, val);
     }
 
 }
