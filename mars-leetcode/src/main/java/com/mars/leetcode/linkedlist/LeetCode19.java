@@ -5,22 +5,18 @@ import com.mars.leetcode.ListNode;
 public class LeetCode19 {
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
-        if (head == null) {
-            return null;
+        int index = 0;
+        ListNode first = head;
+        ListNode dummy = new ListNode(0, head);
+        ListNode second = dummy;
+        while (index++ < n) {
+            first = first.next;
         }
-
-        ListNode dummy = new ListNode(-1, head);
-        ListNode preNode = dummy, afterNode = dummy;
-        int step = 0;
-        while (preNode != null) {
-            step++;
-            preNode = preNode.next;
-            if (step > n + 1) {
-                afterNode = afterNode.next;
-            }
+        while (first != null) {
+            first = first.next;
+            second = second.next;
         }
-        afterNode.next = afterNode.next.next;
-
+        second.next = second.next.next;
         return dummy.next;
     }
 
