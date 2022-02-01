@@ -1,6 +1,4 @@
-package com.mars.leetcode.array;
-
-import org.redisson.liveobject.condition.LECondition;
+package com.mars.leetcode.sort;
 
 public class LeetCode704 {
 
