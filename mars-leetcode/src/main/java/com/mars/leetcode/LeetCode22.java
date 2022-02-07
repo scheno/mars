@@ -24,12 +24,15 @@ public class LeetCode22 {
             result.add(s);
             return;
         }
+        // 左右括号相等时只能使用左括号
         if (left == right) {
             generate(s + "(", left - 1, right);
         } else {
+            // 使用左括号
             if (left > 0) {
                 generate(s + "(", left - 1, right);
             }
+            // 使用右括号
             generate(s + ")", left, right - 1);
         }
     }
