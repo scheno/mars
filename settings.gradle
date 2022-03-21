@@ -4,4 +4,5 @@ include 'mars-leetcode'
 include 'mars-mq'
 include 'mars-web'
 include 'mars-code'
+include 'mars-common'
 
