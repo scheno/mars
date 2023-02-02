@@ -1,4 +1,4 @@
-package com.mars.leetcode.array;
+package com.mars.leetcode.array.move;
 
 /**
  * @author shenchen
@@ -19,7 +19,4 @@ public class LeetCode27 {
         return after;
     }
 
-    public static void main(String[] args) {
-
-    }
 }

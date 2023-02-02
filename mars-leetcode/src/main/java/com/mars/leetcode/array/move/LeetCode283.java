@@ -1,4 +1,4 @@
-package com.mars.leetcode.array;
+package com.mars.leetcode.array.move;
 
 /**
  * @author shenchen
@@ -13,7 +13,9 @@ public class LeetCode283 {
         for (; front < nums.length; front++) {
             if (nums[front] != 0) {
                 nums[after] = nums[front];
-                nums[front] = 0;
+                if (front > after) {
+                    nums[front] = 0;
+                }
                 after++;
             }
         }

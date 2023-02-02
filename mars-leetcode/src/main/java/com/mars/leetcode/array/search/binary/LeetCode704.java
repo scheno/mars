@@ -1,4 +1,4 @@
-package com.mars.leetcode.sort;
+package com.mars.leetcode.array.search.binary;
 
 public class LeetCode704 {
 

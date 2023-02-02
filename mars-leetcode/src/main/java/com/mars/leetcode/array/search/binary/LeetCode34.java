@@ -1,4 +1,4 @@
-package com.mars.leetcode.array;
+package com.mars.leetcode.array.search.binary;
 
 public class LeetCode34 {
 
@@ -44,7 +44,9 @@ public class LeetCode34 {
     public static void main(String[] args) {
         LeetCode34 leetcode34 = new LeetCode34();
         int[] nums = new int[]{5, 7, 7, 8, 8, 10};
-        leetcode34.searchRange(nums, 8);
+        int[] result = leetcode34.searchRange(nums, 8);
+        System.out.println(result[0]);
+        System.out.println(result[1]);
     }
 
 }
