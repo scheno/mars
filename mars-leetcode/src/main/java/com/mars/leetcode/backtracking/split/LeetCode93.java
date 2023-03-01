@@ -25,6 +25,7 @@ public class LeetCode93 {
     }
 
     public void dfs(String s, int start, int residue) {
+        System.out.println(path);
         if (start == s.length()) {
             if (residue == 0) {
                 result.add(String.join(".", path));
@@ -58,5 +59,10 @@ public class LeetCode93 {
             left++;
         }
         return res >=0 && res <= 255;
+    }
+
+    public static void main(String[] args) {
+        LeetCode93 leetcode = new LeetCode93();
+        leetcode.restoreIpAddresses("55555");
     }
 }
