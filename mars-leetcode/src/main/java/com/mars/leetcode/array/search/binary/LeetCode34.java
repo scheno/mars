@@ -3,39 +3,34 @@ package com.mars.leetcode.array.search.binary;
 public class LeetCode34 {
 
     public int[] searchRange(int[] nums, int target) {
-        // 左边界
-        int leftBound = leftBound(nums, target);
-        // 右边界
-        int rightBound = rightBound(nums, target);
-        if (rightBound < leftBound) {
-            return new int[]{-1, -1};
+        int leftBorder = leftBorder(nums, target), rightBorder = rightBorder(nums, target);
+        if (leftBorder > rightBorder) {
+            return new int[] {-1 ,-1};
         }
-        return new int[]{leftBound, rightBound};
+        return new int[] {leftBorder, rightBorder};
     }
 
-    public int leftBound(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+    public int leftBorder(int[] nums, int target) {
+        int left = 0 , right = nums.length - 1;
         while (left <= right) {
-            int mid = (left + right) / 2;
-            if (target <= nums[mid]) {
-                right = mid - 1;
-            } else if (target > nums[mid]) {
-                left = mid + 1;
+            int middle = (left + right) / 2;
+            if (nums[middle] < target) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
             }
         }
         return left;
     }
 
-    public int rightBound(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+    public int rightBorder(int[] nums, int target) {
+        int left = 0 , right = nums.length - 1;
         while (left <= right) {
-            int mid = (left + right) / 2;
-            if (target >= nums[mid]) {
-                left = mid + 1;
-            } else if (target < nums[mid]) {
-                right = mid - 1;
+            int middle = (left + right) / 2;
+            if (nums[middle] > target) {
+                right = middle - 1;
+            } else {
+                left = middle + 1;
             }
         }
         return right;
