@@ -2,6 +2,9 @@ package com.mars.leetcode.linkedlist;
 
 import com.mars.leetcode.ListNode;
 
+/**
+ * 反转链表
+ */
 public class LeetCode206 {
 
     public ListNode reverseList(ListNode head) {

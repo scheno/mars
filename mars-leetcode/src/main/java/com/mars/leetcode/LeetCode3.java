@@ -3,6 +3,9 @@ package com.mars.leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 无重复字符的最长子串
+ */
 public class LeetCode3 {
 
     public static int lengthOfLongestSubstring(String s) {

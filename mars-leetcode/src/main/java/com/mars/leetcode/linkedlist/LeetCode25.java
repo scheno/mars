@@ -3,6 +3,10 @@ package com.mars.leetcode.linkedlist;
 import com.mars.leetcode.ListNode;
 
 /**
+ * K个一组反转链表
+ * 采用递归+头插法，从后往前寻找第K个长度链表的head，
+ * 然后利用头插法局部链表翻转，最终完成所有链表翻转
+ *
  * @author shenchen
  * @date 2022/1/13 10:56 下午
  * @version 1.0
@@ -10,57 +14,28 @@ import com.mars.leetcode.ListNode;
 public class LeetCode25 {
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null) return null;
-        // 创建虚拟头节点
-        ListNode dummy = new ListNode();
-        // 当前节点
-        ListNode current = head;
-        // 需要反转的头节点
-        ListNode preHead = current;
-        // 反转之前的头节点
-        ListNode preTail = dummy;
-        // 下一个需要反转的头节点
-        ListNode nextHead = null;
-        // 处理链表
-        while (current != null) {
-            int i = 0;
-            // k个一组，寻找下一个节点
-            for (; i < k; i++) {
-                // 是否存在下一个需要反转的头节点
-                if (current != null) {
-                    current = current.next;
-                } else {
-                    break;
-                }
+        ListNode temp = head;
+        // 判断从head起，链表长度是否达到k
+        for (int i = 0; i < k; i++) {
+            if (temp == null) {
+                // 如果没有k个节点，不做翻转，直接返回
+                return head;
             }
-            // 如果满足k个节点，进行反转
-            if (i == k) {
-                nextHead = current;
-                preTail.next = reverse(preHead, k);
-                preTail = preHead;
-                preHead = nextHead;
-            } else {
-                // 处理剩下节点
-                preTail.next = nextHead;
-            }
+            temp = temp.next;
         }
-        // 先找到下一个开始的头节点，如果存在，则进行链表反转
-        // 反转链表，保存反转前的的尾指针，将反转前的链表的尾指针设置下一个反转
-        return dummy.next;
-    }
-
-    public ListNode reverse(ListNode head, int k) {
-        if (head == null) return null;
-        ListNode prev = null;
-        ListNode current = head;
-        int index = 0;
-        // 从头节点开始，反转k个链表
-        while (index++ < k) {
-            ListNode temp = current.next;
-            current.next = prev;
-            prev = current;
-            current = temp;
+        // 递归调用，获取最后一个头结点
+        ListNode prev = reverseKGroup(temp, k);
+        for (int i = 0; i < k; i++) {
+            // 获取head节点的下一个节点
+            temp = head.next;
+            // 将head节点指向上一次递归返回的头结点（可能是反转的，也可能是未翻转的，也可能是空）
+            head.next = prev;
+            // 前移prev节点
+            prev = head;
+            // 后移head节点
+            head = temp;
         }
+        // 返回头节点
         return prev;
     }
 
@@ -77,5 +52,6 @@ public class LeetCode25 {
 
         LeetCode25 leetCode25 = new LeetCode25();
         ListNode node = leetCode25.reverseKGroup(node1, 2);
+        System.out.println(node);
     }
 }
