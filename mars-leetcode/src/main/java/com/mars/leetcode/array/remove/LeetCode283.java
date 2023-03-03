@@ -1,4 +1,4 @@
-package com.mars.leetcode.array;
+package com.mars.leetcode.array.remove;
 
 /**
  * @author shenchen
@@ -8,12 +8,13 @@ package com.mars.leetcode.array;
 public class LeetCode283 {
 
     public void moveZeroes(int[] nums) {
-        int front = 0;
-        int after = 0;
+        int front = 0, after = 0;
         for (; front < nums.length; front++) {
             if (nums[front] != 0) {
                 nums[after] = nums[front];
-                nums[front] = 0;
+                if (front > after) {
+                    nums[front] = 0;
+                }
                 after++;
             }
         }

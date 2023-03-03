@@ -5,4 +5,5 @@ include 'mars-mq'
 include 'mars-web'
 include 'mars-code'
 include 'mars-common'
+include 'mars-mq-consumer'
 

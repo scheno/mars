@@ -1,4 +1,4 @@
-package com.mars.leetcode.array;
+package com.mars.leetcode.array.remove;
 
 /**
  * @author shenchen
@@ -8,15 +8,14 @@ package com.mars.leetcode.array;
 public class LeetCode26 {
 
     public int removeDuplicates(int[] nums) {
-        int front = 1;
-        int after = 1;
+        int front = 0, after = 0;
         for (; front < nums.length; front++) {
-            if (nums[front] != nums[front - 1]) {
-                nums[after] = nums[front];
+            if (nums[after] != nums[front]) {
                 after++;
+                nums[after] = nums[front];
             }
         }
-        return after;
+        return after + 1;
     }
 
 }

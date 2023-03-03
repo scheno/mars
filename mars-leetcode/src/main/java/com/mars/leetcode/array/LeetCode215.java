@@ -1,6 +1,8 @@
 package com.mars.leetcode.array;
 
 /**
+ * 数组中的第K个最大元素，利用快速排序，再利用分片进一步优化
+ *
  * @author shenchen
  * @version 1.0
  * @date 2022/1/6 11:50 下午
@@ -8,39 +10,58 @@ package com.mars.leetcode.array;
 public class LeetCode215 {
 
     public int findKthLargest(int[] nums, int k) {
-        quickSork(nums, 0, nums.length - 1);
-        return nums[nums.length - k];
+        return quickSort(nums, 0, nums.length - 1, nums.length - k);
     }
 
-    public int partition(int[] nums, int start, int end) {
+    public int quickSort(int[] nums, int start, int end, int index) {
+        // 获取第一个数组第一个元素排序后所在位置
+        int partitionIndex = partitionIndex(nums, start, end);
+        // 如果该值等于第k个元素所在位置，说明该位置的值就是第K个大的值，直接返回
+        if (partitionIndex == index) {
+            return nums[index];
+        }
+        // 如果partitionIndex小于index，那么说明index则在数组的右侧，否则在左侧，继续进行查找
+        return partitionIndex < index ? quickSort(nums, partitionIndex + 1, end, index) : quickSort(nums, start, partitionIndex - 1, index);
+    }
+
+    /**
+     * 获取数组第一个值数据中所在位置，此时左边元素比初始数组第一个小，右边元素比初始数组第一个大
+     *
+     * @param nums
+     * @param start
+     * @param end
+     * @return
+     */
+    public int partitionIndex(int[] nums, int start, int end) {
         int mark = start;
-        int pivot = nums[start];
-        for (int i = start + 1; i <= end; i++) {
-            if (nums[i] < pivot) {
-                mark++;
-                int temp = nums[i];
-                nums[i] = nums[mark];
-                nums[mark] = temp;
+        for (int i = mark + 1; i <= end; i++) {
+            if (nums[i] < nums[start]) {
+                swap(nums, i, ++mark);
             }
         }
-        nums[start] = nums[mark];
-        nums[mark] = pivot;
+        swap(nums, start, mark);
         return mark;
     }
 
-    public void quickSork(int[] nums, int start, int end) {
-        if (start >= end) {
-            return;
-        }
-        int partitionIndex = partition(nums, start, end);
-        quickSork(nums, start, partitionIndex - 1);
-        quickSork(nums, partitionIndex + 1, end);
+    /**
+     * 交换函数
+     *
+     * @param nums
+     * @param m
+     * @param n
+     */
+    public void swap(int[] nums, int m, int n) {
+        int temp = nums[m];
+        nums[m] = nums[n];
+        nums[n] = temp;
     }
+
 
     public static void main(String[] args) {
         LeetCode215 leetCode215 = new LeetCode215();
         int[] array = new int[] {5, 7, 8, 1, 3, 6};
-        leetCode215.findKthLargest(array, 1);
+        int result = leetCode215.findKthLargest(array, 1);
+        System.out.println(result);
     }
 
 }
