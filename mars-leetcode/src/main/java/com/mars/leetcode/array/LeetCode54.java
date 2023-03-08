@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 螺旋矩阵
+ * 遍历上侧和右侧，全部遍历
+ * 因为存在同一行的现象，所以对下侧和左侧遍历，需要进行判断是否在两行
+ *
  * @author shenchen
  * @version 1.0
  * @date 2021/12/31 11:31 下午
@@ -11,36 +15,31 @@ import java.util.List;
 public class LeetCode54 {
 
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> result = new ArrayList<>(16);
-        int left = 0, right = matrix[0].length - 1;
-        int top = 0, bottom = matrix.length - 1;
-        int size = matrix.length * matrix[0].length;
+        int top = 0, left = 0;
+        int buttom = matrix.length - 1, right = matrix[0].length - 1;
+        List<Integer> result = new ArrayList<>();
 
-        while (result.size() != size) {
+        while (top <= buttom && left <= right) {
             for (int i = left; i <= right; i++) {
                 result.add(matrix[top][i]);
             }
-            top++;
-            if (top > bottom) break;
-
-            for (int i = top; i <= bottom; i++) {
+            for (int i = top+1; i <= buttom; i++) {
                 result.add(matrix[i][right]);
             }
-            right--;
-            if (left > right) break;
-
-            for (int i = right; i >= left; i--) {
-                result.add(matrix[bottom][i]);
+            if (left < right && top < buttom) {
+                for (int i = right - 1; i > left; i--) {
+                    result.add(matrix[buttom][i]);
+                }
+                for (int i = buttom; i > top; i--) {
+                    result.add(matrix[i][left]);
+                }
             }
-            bottom--;
-            if (top > bottom) break;
-
-            for (int i = bottom; i >= top; i--) {
-                result.add(matrix[i][left]);
-            }
+            top++;
             left++;
-            if (left > right) break;
+            buttom--;
+            right--;
         }
         return result;
     }
+
 }
