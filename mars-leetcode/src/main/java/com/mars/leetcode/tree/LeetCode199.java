@@ -8,6 +8,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 二叉树的右视图
+ *
+ * 解题思路：二叉树层序遍历，处理每层最后一个
+ * 特殊问题： 无
+ *
  * @author shenchen
  * @version 1.0
  * @date 2022/1/1 10:46 下午
