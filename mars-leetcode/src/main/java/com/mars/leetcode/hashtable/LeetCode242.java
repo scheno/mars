@@ -12,6 +12,9 @@ import java.util.Map;
 public class LeetCode242 {
 
     public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return Boolean.FALSE;
+        }
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
@@ -20,10 +23,8 @@ public class LeetCode242 {
         for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
             map.put(c, map.getOrDefault(c, 0) - 1);
-        }
-        for (int value : map.values()) {
-            if (value != 0) {
-                return false;
+            if (map.get(c) < 0) {
+                return Boolean.FALSE;
             }
         }
         return Boolean.TRUE;
