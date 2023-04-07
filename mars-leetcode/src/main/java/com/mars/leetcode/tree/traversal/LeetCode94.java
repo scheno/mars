@@ -8,21 +8,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 二叉树的中序遍历
+ * LeetCode94.二叉树的中序遍历
  *
  * 先序遍历：中 -> 左 -> 右
  * 中序遍历：左 -> 中 -> 右
  * 后续遍历：左 -> 右 -> 中
  *
  * @author shenchen
- * @version 1.0
- * @date 2021/12/17 10:21 下午
+ * @since 2021/12/17 10:21 下午
  */
 public class LeetCode94 {
 
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> inorderList = new ArrayList<>();
-        Deque<TreeNode> stack = new LinkedList();
+        if (root == null) {
+            return inorderList;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
         while(root != null || !stack.isEmpty()) {
             // 如果当前节点不为空，那可能存在左侧节点，继续寻找左侧节点
             if (root != null) {
@@ -35,9 +37,10 @@ public class LeetCode94 {
             // 第二种情况是右侧节点，说明当前右，中节点已处理完毕，处理上一个节点
             } else {
                 // 该节点无左侧节点时，说明该处理当前节点
-                TreeNode node = stack.pop();
-                inorderList.add(node.val);
-                // 处理右侧节点
+                root = stack.pop();
+                // 处理该节点
+                inorderList.add(root.val);
+                // 处理该节点右侧节点
                 root = root.right;
             }
 
