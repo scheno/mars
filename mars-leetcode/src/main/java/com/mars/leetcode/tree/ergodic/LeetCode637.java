@@ -1,4 +1,4 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.ergodic;
 
 import com.mars.leetcode.TreeNode;
 
@@ -8,22 +8,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 二叉树的右视图
- *
- * 解题思路：二叉树层序遍历，处理每层最后一个
- * 特殊问题： 无
- *
+ * LeetCode637.二叉树的层平均值
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/1 10:46 下午
+ * @since 2022/1/1 10:46 下午
  */
-public class LeetCode199 {
+public class LeetCode637 {
 
-    public List<Integer> rightSideView(TreeNode root) {
+    public List<Double> averageOfLevels(TreeNode root) {
         // 使用集合存储结果
-        List<Integer> result = new ArrayList<>(16);
+        List<Double> result = new ArrayList<>(16);
         if (root == null) {
-             return result;
+            return result;
         }
         // 队列
         Deque<TreeNode> queue = new LinkedList();
@@ -33,13 +29,13 @@ public class LeetCode199 {
         while (!queue.isEmpty()) {
             // 存放每一层节点的集合
             int levelSize = queue.size();
+            // 存放每一层节点相加结果
+            double levelSum = 0;
             //遍历队列
             for (int i = 0; i < levelSize; i++) {
                 TreeNode node = queue.poll();
-                // 处理最后一个节点
-                if (i == levelSize - 1) {
-                    result.add(node.val);
-                }
+                // 结果累加
+                levelSum += node.val;
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
@@ -47,8 +43,8 @@ public class LeetCode199 {
                     queue.offer(node.right);
                 }
             }
+            result.add(levelSum / levelSize);
         }
-        // 插入每层最后一个元素
         return result;
     }
 

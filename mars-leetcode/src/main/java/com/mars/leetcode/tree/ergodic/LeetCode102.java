@@ -1,16 +1,17 @@
-package com.mars.leetcode.tree.traversal;
+package com.mars.leetcode.tree.ergodic;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import com.mars.leetcode.tree.traversal.TreeNode;
+
 /**
- * 二叉树的层序遍历
+ * LeetCode102.二叉树的层序遍历
  *
  * @author shenchen
- * @version 1.0
- * @date 2021/12/18 12:35 上午
+ * @since 2021/12/18 12:35 上午
  */
 public class LeetCode102 {
 

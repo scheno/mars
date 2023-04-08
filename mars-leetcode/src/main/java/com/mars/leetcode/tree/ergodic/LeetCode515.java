@@ -1,4 +1,4 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.ergodic;
 
 import com.mars.leetcode.TreeNode;
 
@@ -8,33 +8,27 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * LeetCode515.在每个树行中找最大值
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/1 10:46 下午
+ * @since 2022/1/3 8:30 下午
  */
-public class LeetCode637 {
+public class LeetCode515 {
 
-    public List<Double> averageOfLevels(TreeNode root) {
-        // 使用集合存储结果
-        List<Double> result = new ArrayList<>(16);
+    public List<Integer> largestValues(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        // 队列
-        Deque<TreeNode> queue = new LinkedList();
-        // 插入根节点
+        // 创建队列
+        Deque<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-
         while (!queue.isEmpty()) {
-            // 存放每一层节点的集合
             int levelSize = queue.size();
-            // 存放每一层节点相加结果
-            double levelSum = 0;
-            //遍历队列
+            int max = Integer.MIN_VALUE;
             for (int i = 0; i < levelSize; i++) {
                 TreeNode node = queue.poll();
-                // 结果累加
-                levelSum += node.val;
+                max = Math.max(max, node.val);
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
@@ -42,9 +36,8 @@ public class LeetCode637 {
                     queue.offer(node.right);
                 }
             }
-            result.add(levelSum / levelSize);
+            result.add(max);
         }
-        // 插入每层最后一个元素
         return result;
     }
 

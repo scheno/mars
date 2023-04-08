@@ -1,4 +1,4 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.ergodic;
 
 import com.mars.leetcode.Node;
 
@@ -8,9 +8,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * LeetCode429.N叉树的层序遍历
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/3 8:22 下午
+ * @since 2022/1/3 8:22 下午
  */
 
 public class LeetCode429 {

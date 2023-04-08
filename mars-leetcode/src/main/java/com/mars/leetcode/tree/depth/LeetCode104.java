@@ -3,6 +3,8 @@ package com.mars.leetcode.tree.depth;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode104.二叉树的最大深度
+ * 
  * @author shenchen
  * @version 1.0
  * @date 2022/1/3 9:25 下午
@@ -10,7 +12,9 @@ import com.mars.leetcode.TreeNode;
 public class LeetCode104 {
 
     public int maxDepth(TreeNode root) {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
         return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 

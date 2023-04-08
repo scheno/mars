@@ -1,16 +1,17 @@
-package com.mars.leetcode.tree;
-
-import com.mars.leetcode.Node;
+package com.mars.leetcode.tree.ergodic;
 
 import java.util.Deque;
 import java.util.LinkedList;
 
+import com.mars.leetcode.Node;
+
 /**
+ * LeetCode117.填充每个节点的下一个右侧节点指针II
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/3 8:40 下午
+ * @since 2023-04-08 23:08
  */
-public class LeetCode116 {
+public class LeetCode117 {
 
     public Node connect(Node root) {
         if (root == null) {
@@ -37,5 +38,5 @@ public class LeetCode116 {
         }
         return root;
     }
-
+    
 }

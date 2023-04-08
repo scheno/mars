@@ -1,11 +1,12 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.depth;
 
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode111.二叉树的最小深度
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/3 9:54 下午
+ * @since 2022/1/3 9:54 下午
  */
 public class LeetCode111 {
 

@@ -1,4 +1,4 @@
-package com.mars.leetcode.tree;
+package com.mars.leetcode.tree.ergodic;
 
 import com.mars.leetcode.TreeNode;
 
@@ -8,17 +8,21 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * LeetCode199.二叉树的右视图
+ *
+ * 解题思路：二叉树层序遍历，处理每层最后一个
+ * 特殊问题： 无
+ *
  * @author shenchen
- * @version 1.0
- * @date 2022/1/1 10:46 下午
+ * @since 2022/1/1 10:46 下午
  */
-public class LeetCode107 {
+public class LeetCode199 {
 
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        // 使用链表存储结果，使用头插法添加元素
-        LinkedList<List<Integer>> result = new LinkedList<>();
+    public List<Integer> rightSideView(TreeNode root) {
+        // 使用集合存储结果
+        List<Integer> result = new ArrayList<>(16);
         if (root == null) {
-            return result;
+             return result;
         }
         // 队列
         Deque<TreeNode> queue = new LinkedList();
@@ -28,24 +32,20 @@ public class LeetCode107 {
         while (!queue.isEmpty()) {
             // 存放每一层节点的集合
             int levelSize = queue.size();
-            // 当前队列size，需要取好，因为队列在不断变化
-            List<Integer> level = new ArrayList<>(8);
             //遍历队列
             for (int i = 0; i < levelSize; i++) {
                 TreeNode node = queue.poll();
-                // 每一层集合添加值
-                level.add(node.val);
-                // 左孩子
+                // 处理最后一个节点
+                if (i == levelSize - 1) {
+                    result.add(node.val);
+                }
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
-                // 右孩子
                 if (node.right != null) {
                     queue.offer(node.right);
                 }
             }
-            // 头插法插入每一层节点集合
-            result.addFirst(level);
         }
         return result;
     }
