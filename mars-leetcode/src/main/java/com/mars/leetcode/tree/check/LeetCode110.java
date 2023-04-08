@@ -3,9 +3,10 @@ package com.mars.leetcode.tree.check;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode110.平衡二叉树
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/19 8:57 下午
+ * @since 2022/1/19 8:57 下午
  */
 public class LeetCode110 {
 
@@ -13,7 +14,7 @@ public class LeetCode110 {
         if (root == null) {
             return true;
         }
-        return getDepth(root) == -1 ? false : true;
+        return getDepth(root) != -1;
     }
 
     public int getDepth(TreeNode root) {

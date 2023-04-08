@@ -3,9 +3,10 @@ package com.mars.leetcode.tree.reverse;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode226.翻转二叉树
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/19 7:50 下午
+ * @since 2022/1/19 7:50 下午
  */
 public class LeetCode226 {
 

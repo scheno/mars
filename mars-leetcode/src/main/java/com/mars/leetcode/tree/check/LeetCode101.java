@@ -3,9 +3,10 @@ package com.mars.leetcode.tree.check;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode101. 对称二叉树
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/3 8:56 下午
+ * @since 2022/1/3 8:56 下午
  */
 public class LeetCode101 {
 
