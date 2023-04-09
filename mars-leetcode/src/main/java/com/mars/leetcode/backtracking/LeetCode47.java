@@ -31,7 +31,7 @@ public class LeetCode47 {
 
     public void backtrack(int[] nums) {
         if (path.size() == nums.length) {
-            result.add(new ArrayList(path));
+            result.add(new ArrayList<>(path));
             return;
         }
         for (int i = 0; i < nums.length; i++) {

@@ -22,7 +22,7 @@ public class LeetCode637 {
             return result;
         }
         // 队列
-        Deque<TreeNode> queue = new LinkedList();
+        Deque<TreeNode> queue = new LinkedList<>();
         // 插入根节点
         queue.offer(root);
 

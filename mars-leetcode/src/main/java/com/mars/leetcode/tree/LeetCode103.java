@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class LeetCode103 {
 
-    List<List<Integer>> result = new ArrayList();
+    List<List<Integer>> result = new ArrayList<>();
     Deque<TreeNode> queue = new LinkedList<>();
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
@@ -26,7 +26,7 @@ public class LeetCode103 {
         int levelIndex = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
-            Deque<Integer> level = new LinkedList();
+            Deque<Integer> level = new LinkedList<>();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
                 if (levelIndex % 2 == 0) {
@@ -41,7 +41,7 @@ public class LeetCode103 {
                     queue.offer(node.right);
                 }
             }
-            result.add(new ArrayList(level));
+            result.add(new ArrayList<>(level));
             levelIndex++;
         }
         return result;

@@ -1,7 +1,5 @@
 package com.mars.leetcode.array;
 
-import java.util.ArrayList;
-
 /**
  * @author shenchen
  * @version 1.0
@@ -11,8 +9,10 @@ public class LeetCode59 {
 
     public int[][] generateMatrix(int n) {
         int[][] matrix = new int[n][n];
-        int left = 0, right = n - 1;
-        int top = 0, bottom = n - 1;
+        int left = 0;
+        int right = n - 1;
+        int top = 0;
+        int bottom = n - 1;
         int begin = 0;
 
         while (begin != n * n) {

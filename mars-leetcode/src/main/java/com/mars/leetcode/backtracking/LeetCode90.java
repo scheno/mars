@@ -28,7 +28,7 @@ public class LeetCode90 {
     }
 
     public void backtrack(int[] nums, int start) {
-        result.add(new LinkedList(path));
+        result.add(new LinkedList<>(path));
 
         for (int i = start; i < nums.length; i++) {
             if (i > start && nums[i] == nums[i - 1]) {

@@ -29,7 +29,7 @@ public class LeetCode113 {
         }
         path.offerLast(root.val);
         if (root.left == null && root.right == null && root.val == targetSum) {
-            result.add(new ArrayList(path));
+            result.add(new ArrayList<>(path));
         }
         dfs(root.left, targetSum - root.val);
         dfs(root.right, targetSum - root.val);

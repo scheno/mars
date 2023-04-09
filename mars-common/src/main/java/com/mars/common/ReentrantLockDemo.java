@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class ReentrantLockDemo {
 
-    private volatile List list = new ArrayList();
+    private volatile List<Object> list = new ArrayList<>();
 
     public void add(Object value) {
         list.add(value);

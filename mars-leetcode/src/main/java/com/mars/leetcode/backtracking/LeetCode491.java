@@ -26,7 +26,7 @@ public class LeetCode491 {
     public void backtrack(int[] nums, int start) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         if (path.size() > 1) {
-            result.add(new LinkedList(path));
+            result.add(new LinkedList<>(path));
         }
         if (start >= nums.length) {
             return;

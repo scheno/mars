@@ -2,10 +2,8 @@ package com.mars.leetcode.tree;
 
 import com.mars.leetcode.TreeNode;
 
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author shenchen

@@ -41,9 +41,5 @@ public class Offer45 {
         String sy = String.valueOf(y);
         return (sx + sy).compareTo(sy + sx) < 0;
     }
-    
-    public static void main(String[] args) {
-        Offer45 offer45 = new Offer45();
-    }
 
 }

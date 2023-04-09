@@ -3,7 +3,6 @@ package com.mars.leetcode.linkedlist;
 import com.mars.leetcode.ListNode;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
 
 /**

@@ -2,8 +2,6 @@ package com.mars.leetcode.linkedlist;
 
 import com.mars.leetcode.ListNode;
 
-import java.util.List;
-
 /**
  * @author shenchen
  * @version 1.0
