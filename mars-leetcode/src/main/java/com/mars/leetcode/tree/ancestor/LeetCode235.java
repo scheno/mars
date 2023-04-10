@@ -3,9 +3,10 @@ package com.mars.leetcode.tree.ancestor;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode235.二叉搜索树的最近公共祖先
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/10 11:37 下午
+ * @since 2022/1/10 11:37 下午
  */
 public class LeetCode235 {
 

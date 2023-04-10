@@ -3,9 +3,11 @@ package com.mars.leetcode.tree.search;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode98.验证二叉搜索树
+ * 中序遍历二叉搜索树，前一个节点一定小于后一个节点
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/9 4:39 下午
+ * @since 2022/1/9 4:39 下午
  */
 public class LeetCode98 {
 

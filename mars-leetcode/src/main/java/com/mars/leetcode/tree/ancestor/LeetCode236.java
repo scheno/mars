@@ -19,16 +19,13 @@ public class LeetCode236 {
         }
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        if (left == null && right == null) {
-            return null;
-        }
         if (left != null && right != null) {
             return root;
         }
-        if (left == null && right != null) {
+        if (right != null) {
             return right;
         }
-        if (left != null && right == null) {
+        if (left != null) {
             return left;
         }
         return null;

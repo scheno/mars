@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * LeetCode501.二叉搜索树中的众数
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/9 10:33 下午
+ * @since 2022/1/9 10:33 下午
  */
 public class LeetCode501 {
 

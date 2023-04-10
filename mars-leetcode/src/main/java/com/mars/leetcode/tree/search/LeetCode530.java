@@ -3,9 +3,10 @@ package com.mars.leetcode.tree.search;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode530.二叉搜索树的最小绝对差
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/9 10:12 下午
+ * @since 2022/1/9 10:12 下午
  */
 public class LeetCode530 {
 

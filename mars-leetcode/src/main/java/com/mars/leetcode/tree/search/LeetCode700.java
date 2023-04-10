@@ -3,9 +3,10 @@ package com.mars.leetcode.tree.search;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode700.二叉搜索树中的搜索
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/9 4:21 下午
+ * @since 2022/1/9 4:21 下午
  */
 public class LeetCode700 {
 

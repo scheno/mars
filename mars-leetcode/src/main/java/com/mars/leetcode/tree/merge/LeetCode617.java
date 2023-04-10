@@ -3,9 +3,10 @@ package com.mars.leetcode.tree.merge;
 import com.mars.leetcode.TreeNode;
 
 /**
+ * LeetCode617.合并二叉树
+ * 
  * @author shenchen
- * @version 1.0
- * @date 2022/1/21 8:44 下午
+ * @since 2022/1/9 3:36 下午
  */
 public class LeetCode617 {
 
@@ -17,8 +18,8 @@ public class LeetCode617 {
             return root1;
         }
         root1.val = root1.val + root2.val;
-        root1.left = mergeTrees((root1.left), root2.left);
-        root1.right = mergeTrees((root1.right), root2.right);
-        return root2;
+        root1.left = mergeTrees(root1.left, root2.left);
+        root1.right = mergeTrees(root1.right, root2.right);
+        return root1;
     }
 }
