@@ -1,7 +1,7 @@
-package com.mars.leetcode;
+package com.mars.leetcode.dp;
 
 /**
- * 动态规划算法
+ * LeetCode70. 爬楼梯
  *
  * @author shenchen
  * @version 1.0
