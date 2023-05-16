@@ -1,3 +1,5 @@
+package com.mars.leetcode;
+
 import java.util.PriorityQueue;
 
 /**
